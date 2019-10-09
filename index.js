@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const cool = require('cool-ascii-faces')
+// var async = require('asyncawait/async');
+// var await = require('asyncawait/await');
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -15,7 +17,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req,res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
-//   .get('/db', (req, res) => {
+//   .get('/db', async (req, res) => {
 //     try {
 //       const client = await pool.connect()
 //       const result = await client.query('SELECT * FROM test_table');
